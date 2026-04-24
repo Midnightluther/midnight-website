@@ -1,18 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grabit</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 
-<body style="background-color:black; text-align:center;">
-
-  <h1 style="color:white; font-size:70px; font-weight:900; margin-top:120px;">
-    GRABIT
-  </h1>
-
-  <p style="color:grey; font-size:20px;">
-    Grab it before it's gone
-  </p>
-
+<body>
+  <div class="container">
+    <h1>Grabit</h1>
+    <p>before it's gone</p>
+  </div>
 </body>
 </html>
