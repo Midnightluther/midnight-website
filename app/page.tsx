@@ -11,15 +11,12 @@ export default function Home() {
     setAccess(true);
   };
 
-  const toggleCard = (card: string) => {
-    setOpenCard(openCard === card ? null : card);
-  };
-
   if (!access) {
     return (
       <main
         style={{
           minHeight: "100vh",
+          width: "100%",
           background:
             "radial-gradient(circle at center, #101a14 0%, #050505 45%, #000 100%)",
           color: "white",
@@ -27,15 +24,19 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          fontFamily: "Arial, Helvetica, sans-serif",
+          fontFamily:
+            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
           padding: "20px",
           boxSizing: "border-box",
+          overflow: "hidden",
         }}
       >
         <div
           style={{
-            width: "min(90%, 500px)",
-            padding: "45px 30px",
+            width: "100%",
+            maxWidth: "460px",
+            margin: "0 auto",
+            padding: "42px 28px",
             background: "rgba(5,10,8,0.95)",
             border: "2px solid white",
             boxShadow: "0 0 40px rgba(0,255,136,0.12)",
@@ -46,7 +47,8 @@ export default function Home() {
             style={{
               color: "#00ff88",
               fontSize: "11px",
-              letterSpacing: "4px",
+              letterSpacing: "3px",
+              margin: "0 0 18px",
             }}
           >
             ● SECURE SYSTEM ONLINE
@@ -54,15 +56,17 @@ export default function Home() {
 
           <h1
             style={{
-              margin: "20px 0",
-              fontSize: "clamp(42px, 10vw, 72px)",
+              margin: "0 0 18px",
+              fontSize: "clamp(40px, 9vw, 68px)",
               fontWeight: 800,
-              letterSpacing: "4px",
+              letterSpacing: "2px",
+              lineHeight: 1,
               color: "white",
+              whiteSpace: "nowrap",
               fontFamily:
-                "Arial Black, Impact, Helvetica Neue, Arial, sans-serif",
+                "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
               textShadow:
-                "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 22px rgba(0,255,136,0.15)",
+                "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000",
             }}
           >
             GRABITUK
@@ -71,14 +75,21 @@ export default function Home() {
           <p
             style={{
               color: "#aaa",
-              letterSpacing: "3px",
-              fontSize: "14px",
+              letterSpacing: "4px",
+              fontSize: "13px",
+              margin: "0 0 12px",
             }}
           >
             SECURE ACCESS
           </p>
 
-          <p style={{ color: "#666", fontSize: "13px" }}>
+          <p
+            style={{
+              color: "#666",
+              fontSize: "13px",
+              margin: "0 auto 20px",
+            }}
+          >
             Enter your access key to continue
           </p>
 
@@ -93,7 +104,7 @@ export default function Home() {
             style={{
               width: "100%",
               padding: "16px",
-              marginTop: "15px",
+              margin: "0",
               background: "#000",
               border: "1px solid #333",
               color: "#00ff88",
@@ -117,6 +128,7 @@ export default function Home() {
               fontWeight: 900,
               letterSpacing: "2px",
               cursor: "pointer",
+              boxSizing: "border-box",
             }}
           >
             UNLOCK
@@ -125,9 +137,9 @@ export default function Home() {
           <p
             style={{
               color: "#555",
-              fontSize: "12px",
+              fontSize: "11px",
               letterSpacing: "2px",
-              marginTop: "18px",
+              margin: "18px 0 0",
             }}
           >
             SYSTEM LOCKED
@@ -141,400 +153,223 @@ export default function Home() {
     <main
       style={{
         minHeight: "100vh",
-        background: "#050505",
+        background: "#000",
         color: "white",
-        fontFamily: "Arial, Helvetica, sans-serif",
+        fontFamily:
+          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
       }}
     >
-      {/* HERO */}
       <section
         style={{
-          minHeight: "100vh",
+          minHeight: "75vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          padding: "30px 20px",
+          padding: "40px 20px",
           boxSizing: "border-box",
-          background:
-            "radial-gradient(circle at center, #101a14 0%, #050505 50%, #000 100%)",
         }}
       >
         <p
           style={{
             color: "#00ff88",
             letterSpacing: "4px",
-            fontSize: "11px",
+            fontSize: "12px",
+            marginBottom: "20px",
           }}
         >
-          ● ACCESS GRANTED
+          WELCOME TO GRABITUK
         </p>
 
         <h1
           style={{
-            margin: 0,
-            fontSize: "clamp(55px, 13vw, 130px)",
+            fontSize: "clamp(42px, 9vw, 80px)",
+            margin: "0",
             fontWeight: 900,
-            letterSpacing: "7px",
-            lineHeight: 0.9,
-            color: "white",
-            fontFamily:
-              "Arial Black, Impact, Helvetica Neue, Arial, sans-serif",
-            textShadow:
-              "-3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 0 35px rgba(0,255,136,0.12)",
+            letterSpacing: "3px",
           }}
         >
-          GRABITUK
+          TECH. PRIVACY. MODS.
         </h1>
 
         <p
           style={{
-            marginTop: "35px",
-            color: "#aaa",
-            fontSize: "clamp(15px, 2vw, 20px)",
-            letterSpacing: "3px",
+            fontSize: "clamp(20px, 4vw, 30px)",
+            color: "#00ff88",
+            marginTop: "18px",
+            fontWeight: 700,
           }}
         >
-          TECH. PRIVACY. MODS. YOUR WAY.
+          YOUR WAY.
         </p>
 
-        <a
-          href="#explore"
-          style={{
-            marginTop: "45px",
-            padding: "15px 30px",
-            border: "1px solid #00ff88",
-            color: "#00ff88",
-            textDecoration: "none",
-            letterSpacing: "2px",
-            fontSize: "12px",
-          }}
-        >
-          EXPLORE GRABITUK ↓
-        </a>
-      </section>
-
-      {/* INFO */}
-      <section
-        id="explore"
-        style={{
-          padding: "100px 20px 50px",
-          textAlign: "center",
-          background: "#080808",
-        }}
-      >
         <p
           style={{
-            color: "#00ff88",
-            letterSpacing: "4px",
-            fontSize: "11px",
+            maxWidth: "600px",
+            color: "#999",
+            lineHeight: 1.7,
+            marginTop: "25px",
+          }}
+        >
+          Technology without the boring. Privacy-focused phones, customised
+          devices and unique tech setups built for people who want something
+          different.
+        </p>
+      </section>
+
+      <section
+        style={{
+          maxWidth: "1000px",
+          margin: "0 auto",
+          padding: "60px 20px",
+        }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "32px",
+            marginBottom: "15px",
           }}
         >
           WHAT WE DO
-        </p>
-
-        <h2
-          style={{
-            fontSize: "clamp(35px, 7vw, 65px)",
-            margin: "15px 0 20px",
-          }}
-        >
-          Technology without the boring.
         </h2>
 
         <p
           style={{
-            maxWidth: "650px",
-            margin: "auto",
-            color: "#888",
-            lineHeight: 1.7,
-            fontSize: "17px",
+            textAlign: "center",
+            color: "#777",
+            marginBottom: "40px",
           }}
         >
-          GrabitUK focuses on the more interesting side of technology —
-          privacy-focused phones, customised gaming devices and tech
-          built around the way you actually want to use it.
+          Explore the different sides of GrabitUK.
         </p>
-      </section>
 
-      {/* CLICKABLE CARDS */}
-      <section
-        style={{
-          padding: "40px 20px 100px",
-          background: "#080808",
-        }}
-      >
         <div
           style={{
-            maxWidth: "1100px",
-            margin: "auto",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
             gap: "20px",
           }}
         >
-          {/* PHONES */}
-          <div>
-            <button
-              onClick={() => toggleCard("phones")}
-              style={{
-                width: "100%",
-                background: "#0d0d0d",
-                border: openCard === "phones"
-                  ? "1px solid #00ff88"
-                  : "1px solid #222",
-                color: "white",
-                padding: "35px 25px",
-                textAlign: "left",
-                cursor: "pointer",
-              }}
-            >
-              <div style={{ fontSize: "40px" }}>🔐</div>
+          <div
+            onClick={() =>
+              setOpenCard(openCard === "phones" ? null : "phones")
+            }
+            style={{
+              padding: "30px 20px",
+              border: "1px solid #222",
+              background: "#080808",
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "40px" }}>🔐</div>
 
-              <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
-                Privacy Phones
-              </h3>
+            <h3>Privacy Phones</h3>
 
-              <p style={{ color: "#888", lineHeight: 1.7 }}>
-                Privacy-focused Pixel devices and setup services.
-              </p>
-
-              <span
-                style={{
-                  color: "#00ff88",
-                  fontSize: "11px",
-                  letterSpacing: "2px",
-                }}
-              >
-                {openCard === "phones"
-                  ? "CLOSE ↑"
-                  : "TAP TO EXPLORE ↓"}
-              </span>
-            </button>
+            <p style={{ color: "#777" }}>
+              Privacy-focused Pixel phones and GrapheneOS setups.
+            </p>
 
             {openCard === "phones" && (
-              <div
+              <p
                 style={{
-                  background: "#101010",
-                  border: "1px solid #222",
-                  borderTop: "none",
-                  padding: "25px",
-                  color: "#999",
-                  lineHeight: 1.7,
-                  textAlign: "left",
+                  color: "#aaa",
+                  lineHeight: 1.6,
+                  marginTop: "20px",
                 }}
               >
-                <strong style={{ color: "white" }}>
-                  Pixel + GrapheneOS
-                </strong>
-
-                <p>
-                  We focus on compatible Google Pixel devices running
-                  GrapheneOS — a privacy-focused mobile operating system
-                  built around giving you more control over your phone.
-                </p>
-
-                <p>
-                  Things can include stronger app isolation, more control
-                  over permissions, separate user profiles and optional
-                  Google services rather than having everything tied
-                  together by default.
-                </p>
-
-                <p
-                  style={{
-                    color: "#00ff88",
-                    fontSize: "12px",
-                    letterSpacing: "1px",
-                  }}
-                >
-                  The interesting stuff is under the surface.
-                </p>
-              </div>
+                Custom privacy-focused setups using compatible Pixel devices
+                and GrapheneOS, with features such as app isolation,
+                permissions and separate user profiles.
+              </p>
             )}
           </div>
 
-          {/* GAMING */}
-          <div>
-            <button
-              onClick={() => toggleCard("gaming")}
-              style={{
-                width: "100%",
-                background: "#0d0d0d",
-                border: openCard === "gaming"
-                  ? "1px solid #00ff88"
-                  : "1px solid #222",
-                color: "white",
-                padding: "35px 25px",
-                textAlign: "left",
-                cursor: "pointer",
-              }}
-            >
-              <div style={{ fontSize: "40px" }}>🎮</div>
+          <div
+            onClick={() =>
+              setOpenCard(openCard === "gaming" ? null : "gaming")
+            }
+            style={{
+              padding: "30px 20px",
+              border: "1px solid #222",
+              background: "#080808",
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "40px" }}>🎮</div>
 
-              <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
-                Modded Devices
-              </h3>
+            <h3>Modded Devices</h3>
 
-              <p style={{ color: "#888", lineHeight: 1.7 }}>
-                Customised Nintendo and handheld devices.
-              </p>
-
-              <span
-                style={{
-                  color: "#00ff88",
-                  fontSize: "11px",
-                  letterSpacing: "2px",
-                }}
-              >
-                {openCard === "gaming"
-                  ? "CLOSE ↑"
-                  : "TAP TO EXPLORE ↓"}
-              </span>
-            </button>
+            <p style={{ color: "#777" }}>
+              Customised handhelds and gaming devices.
+            </p>
 
             {openCard === "gaming" && (
-              <div
+              <p
                 style={{
-                  background: "#101010",
-                  border: "1px solid #222",
-                  borderTop: "none",
-                  padding: "25px",
-                  color: "#999",
-                  lineHeight: 1.7,
-                  textAlign: "left",
+                  color: "#aaa",
+                  lineHeight: 1.6,
+                  marginTop: "20px",
                 }}
               >
-                <strong style={{ color: "white" }}>
-                  Custom handhelds
-                </strong>
-
-                <p>
-                  Personalised handheld setups with legitimate homebrew,
-                  themes, custom menus and useful system tools.
-                </p>
-
-                <p>
-                  The aim is to make a device feel like your own rather
-                  than leaving it completely stock.
-                </p>
-
-                <p
-                  style={{
-                    color: "#00ff88",
-                    fontSize: "12px",
-                    letterSpacing: "1px",
-                  }}
-                >
-                  Built around the device. Built around you.
-                </p>
-              </div>
+                Custom themes, menus, homebrew and useful system tools for
+                compatible devices.
+              </p>
             )}
           </div>
 
-          {/* CUSTOM TECH */}
-          <div>
-            <button
-              onClick={() => toggleCard("tech")}
-              style={{
-                width: "100%",
-                background: "#0d0d0d",
-                border: openCard === "tech"
-                  ? "1px solid #00ff88"
-                  : "1px solid #222",
-                color: "white",
-                padding: "35px 25px",
-                textAlign: "left",
-                cursor: "pointer",
-              }}
-            >
-              <div style={{ fontSize: "40px" }}>⚡</div>
+          <div
+            onClick={() =>
+              setOpenCard(openCard === "custom" ? null : "custom")
+            }
+            style={{
+              padding: "30px 20px",
+              border: "1px solid #222",
+              background: "#080808",
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "40px" }}>⚡</div>
 
-              <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
-                Custom Tech
-              </h3>
+            <h3>Custom Tech</h3>
 
-              <p style={{ color: "#888", lineHeight: 1.7 }}>
-                Interesting technology and customised setups.
+            <p style={{ color: "#777" }}>
+              Accessories, unusual tech and personalised setups.
+            </p>
+
+            {openCard === "custom" && (
+              <p
+                style={{
+                  color: "#aaa",
+                  lineHeight: 1.6,
+                  marginTop: "20px",
+                }}
+              >
+                From useful accessories to unique technology setups, built
+                around how you actually want to use your devices.
               </p>
-
-              <span
-                style={{
-                  color: "#00ff88",
-                  fontSize: "11px",
-                  letterSpacing: "2px",
-                }}
-              >
-                {openCard === "tech"
-                  ? "CLOSE ↑"
-                  : "TAP TO EXPLORE ↓"}
-              </span>
-            </button>
-
-            {openCard === "tech" && (
-              <div
-                style={{
-                  background: "#101010",
-                  border: "1px solid #222",
-                  borderTop: "none",
-                  padding: "25px",
-                  color: "#999",
-                  lineHeight: 1.7,
-                  textAlign: "left",
-                }}
-              >
-                <strong style={{ color: "white" }}>
-                  Something different
-                </strong>
-
-                <p>
-                  Custom accessories, unusual tech and personalised
-                  setups for people who don't want the standard experience.
-                </p>
-
-                <p>
-                  This is where new ideas, custom builds and future
-                  GrabitUK projects can live.
-                </p>
-
-                <p
-                  style={{
-                    color: "#00ff88",
-                    fontSize: "12px",
-                    letterSpacing: "1px",
-                  }}
-                >
-                  More coming soon.
-                </p>
-              </div>
             )}
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer
         style={{
-          padding: "50px 20px",
+          borderTop: "1px solid #151515",
+          padding: "30px 20px",
           textAlign: "center",
-          borderTop: "1px solid #222",
-          background: "#050505",
+          color: "#555",
+          letterSpacing: "2px",
+          fontSize: "12px",
         }}
       >
-        <h2 style={{ margin: 0, letterSpacing: "4px" }}>
-          GRABITUK
-        </h2>
-
-        <p
-          style={{
-            color: "#555",
-            fontSize: "12px",
-            letterSpacing: "2px",
-          }}
-        >
-          TECH. PRIVACY. MODS.
-        </p>
+        GRABITUK
+        <br />
+        <span style={{ color: "#333" }}>TECH. PRIVACY. MODS.</span>
       </footer>
     </main>
   );
