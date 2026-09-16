@@ -5,9 +5,14 @@ import { useState } from "react";
 export default function Home() {
   const [access, setAccess] = useState(false);
   const [key, setKey] = useState("");
+  const [openCard, setOpenCard] = useState<string | null>(null);
 
   const unlock = () => {
     setAccess(true);
+  };
+
+  const toggleCard = (card: string) => {
+    setOpenCard(openCard === card ? null : card);
   };
 
   if (!access) {
@@ -50,12 +55,14 @@ export default function Home() {
           <h1
             style={{
               margin: "20px 0",
-              fontSize: "clamp(45px, 11vw, 80px)",
-              fontWeight: 900,
-              letterSpacing: "7px",
+              fontSize: "clamp(42px, 10vw, 72px)",
+              fontWeight: 800,
+              letterSpacing: "4px",
               color: "white",
+              fontFamily:
+                "Arial Black, Impact, Helvetica Neue, Arial, sans-serif",
               textShadow:
-                "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000",
+                "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 22px rgba(0,255,136,0.15)",
             }}
           >
             GRABITUK
@@ -80,9 +87,7 @@ export default function Home() {
             value={key}
             onChange={(e) => setKey(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                unlock();
-              }
+              if (e.key === "Enter") unlock();
             }}
             placeholder="ACCESS KEY"
             style={{
@@ -141,6 +146,7 @@ export default function Home() {
         fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
+      {/* HERO */}
       <section
         style={{
           minHeight: "100vh",
@@ -170,8 +176,13 @@ export default function Home() {
             margin: 0,
             fontSize: "clamp(55px, 13vw, 130px)",
             fontWeight: 900,
-            letterSpacing: "8px",
+            letterSpacing: "7px",
+            lineHeight: 0.9,
             color: "white",
+            fontFamily:
+              "Arial Black, Impact, Helvetica Neue, Arial, sans-serif",
+            textShadow:
+              "-3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 0 35px rgba(0,255,136,0.12)",
           }}
         >
           GRABITUK
@@ -181,7 +192,7 @@ export default function Home() {
           style={{
             marginTop: "35px",
             color: "#aaa",
-            fontSize: "18px",
+            fontSize: "clamp(15px, 2vw, 20px)",
             letterSpacing: "3px",
           }}
         >
@@ -204,10 +215,11 @@ export default function Home() {
         </a>
       </section>
 
+      {/* INFO */}
       <section
         id="explore"
         style={{
-          padding: "100px 20px",
+          padding: "100px 20px 50px",
           textAlign: "center",
           background: "#080808",
         }}
@@ -246,9 +258,10 @@ export default function Home() {
         </p>
       </section>
 
+      {/* CLICKABLE CARDS */}
       <section
         style={{
-          padding: "20px 20px 100px",
+          padding: "40px 20px 100px",
           background: "#080808",
         }}
       >
@@ -261,53 +274,246 @@ export default function Home() {
             gap: "20px",
           }}
         >
-          <div
-            style={{
-              background: "#0d0d0d",
-              border: "1px solid #222",
-              padding: "35px 25px",
-            }}
-          >
-            <div style={{ fontSize: "40px" }}>🔐</div>
-            <h3 style={{ fontSize: "24px" }}>Privacy Phones</h3>
-            <p style={{ color: "#888", lineHeight: 1.7 }}>
-              Privacy-focused Pixel devices and setup services
-              for people who want more control over their technology.
-            </p>
+          {/* PHONES */}
+          <div>
+            <button
+              onClick={() => toggleCard("phones")}
+              style={{
+                width: "100%",
+                background: "#0d0d0d",
+                border: openCard === "phones"
+                  ? "1px solid #00ff88"
+                  : "1px solid #222",
+                color: "white",
+                padding: "35px 25px",
+                textAlign: "left",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ fontSize: "40px" }}>🔐</div>
+
+              <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
+                Privacy Phones
+              </h3>
+
+              <p style={{ color: "#888", lineHeight: 1.7 }}>
+                Privacy-focused Pixel devices and setup services.
+              </p>
+
+              <span
+                style={{
+                  color: "#00ff88",
+                  fontSize: "11px",
+                  letterSpacing: "2px",
+                }}
+              >
+                {openCard === "phones"
+                  ? "CLOSE ↑"
+                  : "TAP TO EXPLORE ↓"}
+              </span>
+            </button>
+
+            {openCard === "phones" && (
+              <div
+                style={{
+                  background: "#101010",
+                  border: "1px solid #222",
+                  borderTop: "none",
+                  padding: "25px",
+                  color: "#999",
+                  lineHeight: 1.7,
+                  textAlign: "left",
+                }}
+              >
+                <strong style={{ color: "white" }}>
+                  Pixel + GrapheneOS
+                </strong>
+
+                <p>
+                  We focus on compatible Google Pixel devices running
+                  GrapheneOS — a privacy-focused mobile operating system
+                  built around giving you more control over your phone.
+                </p>
+
+                <p>
+                  Things can include stronger app isolation, more control
+                  over permissions, separate user profiles and optional
+                  Google services rather than having everything tied
+                  together by default.
+                </p>
+
+                <p
+                  style={{
+                    color: "#00ff88",
+                    fontSize: "12px",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  The interesting stuff is under the surface.
+                </p>
+              </div>
+            )}
           </div>
 
-          <div
-            style={{
-              background: "#0d0d0d",
-              border: "1px solid #222",
-              padding: "35px 25px",
-            }}
-          >
-            <div style={{ fontSize: "40px" }}>🎮</div>
-            <h3 style={{ fontSize: "24px" }}>Modded Devices</h3>
-            <p style={{ color: "#888", lineHeight: 1.7 }}>
-              Customised Nintendo and handheld devices with
-              legitimate homebrew, themes and personalised setups.
-            </p>
+          {/* GAMING */}
+          <div>
+            <button
+              onClick={() => toggleCard("gaming")}
+              style={{
+                width: "100%",
+                background: "#0d0d0d",
+                border: openCard === "gaming"
+                  ? "1px solid #00ff88"
+                  : "1px solid #222",
+                color: "white",
+                padding: "35px 25px",
+                textAlign: "left",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ fontSize: "40px" }}>🎮</div>
+
+              <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
+                Modded Devices
+              </h3>
+
+              <p style={{ color: "#888", lineHeight: 1.7 }}>
+                Customised Nintendo and handheld devices.
+              </p>
+
+              <span
+                style={{
+                  color: "#00ff88",
+                  fontSize: "11px",
+                  letterSpacing: "2px",
+                }}
+              >
+                {openCard === "gaming"
+                  ? "CLOSE ↑"
+                  : "TAP TO EXPLORE ↓"}
+              </span>
+            </button>
+
+            {openCard === "gaming" && (
+              <div
+                style={{
+                  background: "#101010",
+                  border: "1px solid #222",
+                  borderTop: "none",
+                  padding: "25px",
+                  color: "#999",
+                  lineHeight: 1.7,
+                  textAlign: "left",
+                }}
+              >
+                <strong style={{ color: "white" }}>
+                  Custom handhelds
+                </strong>
+
+                <p>
+                  Personalised handheld setups with legitimate homebrew,
+                  themes, custom menus and useful system tools.
+                </p>
+
+                <p>
+                  The aim is to make a device feel like your own rather
+                  than leaving it completely stock.
+                </p>
+
+                <p
+                  style={{
+                    color: "#00ff88",
+                    fontSize: "12px",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  Built around the device. Built around you.
+                </p>
+              </div>
+            )}
           </div>
 
-          <div
-            style={{
-              background: "#0d0d0d",
-              border: "1px solid #222",
-              padding: "35px 25px",
-            }}
-          >
-            <div style={{ fontSize: "40px" }}>⚡</div>
-            <h3 style={{ fontSize: "24px" }}>Custom Tech</h3>
-            <p style={{ color: "#888", lineHeight: 1.7 }}>
-              Interesting technology, accessories and customised
-              setups for people who want something different.
-            </p>
+          {/* CUSTOM TECH */}
+          <div>
+            <button
+              onClick={() => toggleCard("tech")}
+              style={{
+                width: "100%",
+                background: "#0d0d0d",
+                border: openCard === "tech"
+                  ? "1px solid #00ff88"
+                  : "1px solid #222",
+                color: "white",
+                padding: "35px 25px",
+                textAlign: "left",
+                cursor: "pointer",
+              }}
+            >
+              <div style={{ fontSize: "40px" }}>⚡</div>
+
+              <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
+                Custom Tech
+              </h3>
+
+              <p style={{ color: "#888", lineHeight: 1.7 }}>
+                Interesting technology and customised setups.
+              </p>
+
+              <span
+                style={{
+                  color: "#00ff88",
+                  fontSize: "11px",
+                  letterSpacing: "2px",
+                }}
+              >
+                {openCard === "tech"
+                  ? "CLOSE ↑"
+                  : "TAP TO EXPLORE ↓"}
+              </span>
+            </button>
+
+            {openCard === "tech" && (
+              <div
+                style={{
+                  background: "#101010",
+                  border: "1px solid #222",
+                  borderTop: "none",
+                  padding: "25px",
+                  color: "#999",
+                  lineHeight: 1.7,
+                  textAlign: "left",
+                }}
+              >
+                <strong style={{ color: "white" }}>
+                  Something different
+                </strong>
+
+                <p>
+                  Custom accessories, unusual tech and personalised
+                  setups for people who don't want the standard experience.
+                </p>
+
+                <p>
+                  This is where new ideas, custom builds and future
+                  GrabitUK projects can live.
+                </p>
+
+                <p
+                  style={{
+                    color: "#00ff88",
+                    fontSize: "12px",
+                    letterSpacing: "1px",
+                  }}
+                >
+                  More coming soon.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer
         style={{
           padding: "50px 20px",
