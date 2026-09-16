@@ -3,54 +3,506 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrabitUK</title>
+  <title>GrabitUK | Secure Access</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: #000;
-      color: #fff;
+      background: #050505;
+      color: white;
       font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* -------------------------
+       SECRET ACCESS SCREEN
+    ------------------------- */
+
+    #access-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background:
+        radial-gradient(circle at center, #101a14 0%, #050505 45%, #000 100%);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
+      transition: opacity 1s ease, visibility 1s ease;
     }
 
-    .container {
-      padding: 20px;
+    #access-screen.unlocked {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 64px;
+    .access-box {
+      width: min(90%, 500px);
+      padding: 45px 30px;
+      border: 1px solid rgba(0, 255, 140, 0.25);
+      background: rgba(5, 10, 8, 0.8);
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 0 40px rgba(0, 255, 140, 0.08),
+        inset 0 0 30px rgba(0, 255, 140, 0.03);
+    }
+
+    .system {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #00ff88;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .access-logo {
+      font-size: clamp(42px, 10vw, 78px);
       font-weight: 900;
+      letter-spacing: 8px;
+      margin: 0;
+      color: white;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.4),
+        0 0 30px rgba(0,255,136,0.15);
+    }
+
+    .access-title {
+      margin: 18px 0 8px;
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+
+    .access-subtitle {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .key-input {
+      width: 100%;
+      padding: 16px;
+      background: #000;
+      border: 1px solid #333;
+      color: #00ff88;
+      text-align: center;
+      font-size: 16px;
+      letter-spacing: 5px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .key-input:focus {
+      border-color: #00ff88;
+      box-shadow: 0 0 15px rgba(0,255,136,0.15);
+    }
+
+    .unlock-button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 16px;
+      background: #00ff88;
+      color: #000;
+      border: none;
+      font-weight: 900;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .unlock-button:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0,255,136,0.25);
+    }
+
+    #message {
+      min-height: 20px;
+      margin-top: 18px;
+      font-size: 12px;
+      color: #555;
       letter-spacing: 2px;
     }
 
-    p {
-      margin-top: 12px;
-      font-size: 18px;
-      color: #fff;
+    #message.error {
+      color: #ff4545;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 42px;
+    #message.success {
+      color: #00ff88;
+    }
+
+    /* -------------------------
+       MAIN WEBSITE
+    ------------------------- */
+
+    #main-site {
+      min-height: 100vh;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    #main-site.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: #00ff88;
+      opacity: 0.035;
+      filter: blur(150px);
+      border-radius: 50%;
+    }
+
+    .status {
+      color: #00ff88;
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .main-logo {
+      position: relative;
+      font-size: clamp(55px, 12vw, 130px);
+      font-weight: 900;
+      letter-spacing: 8px;
+      margin: 0;
+      line-height: 0.9;
+      text-transform: uppercase;
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #aaaaaa 45%,
+        #ffffff 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 35px rgba(255,255,255,0.08);
+    }
+
+    .tagline {
+      margin-top: 30px;
+      color: #aaa;
+      font-size: clamp(15px, 2vw, 20px);
+      letter-spacing: 3px;
+    }
+
+    .hero-button {
+      margin-top: 45px;
+      padding: 15px 30px;
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-size: 12px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: #00ff88;
+      color: #000;
+      box-shadow: 0 0 30px rgba(0,255,136,0.2);
+    }
+
+    /* -------------------------
+       PRODUCTS
+    ------------------------- */
+
+    .products {
+      padding: 100px 8%;
+      background: #080808;
+    }
+
+    .section-label {
+      text-align: center;
+      color: #00ff88;
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(30px, 5vw, 55px);
+      margin: 0 0 60px;
+      letter-spacing: 2px;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 35px 25px;
+      background: #0d0d0d;
+      border: 1px solid #222;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #00ff88;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 25px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #888;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .footer {
+      padding: 40px;
+      text-align: center;
+      color: #444;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* -------------------------
+       MOBILE
+    ------------------------- */
+
+    @media (max-width: 750px) {
+
+      .cards {
+        grid-template-columns: 1fr;
       }
 
-      p {
-        font-size: 15px;
+      .access-box {
+        padding: 35px 20px;
+      }
+
+      .main-logo {
+        letter-spacing: 4px;
+      }
+
+      .products {
+        padding: 80px 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>GrabitUK</h1>
-    <p>The latest tech, all in one place.</p>
+
+  <!-- SECRET ENTRY -->
+
+  <div id="access-screen">
+
+    <div class="access-box">
+
+      <div class="system">
+        ● Secure System Online
+      </div>
+
+      <h1 class="access-logo">GRABITUK</h1>
+
+      <div class="access-title">
+        Secure Access
+      </div>
+
+      <div class="access-subtitle">
+        Enter your access key to continue
+      </div>
+
+      <input
+        type="password"
+        id="key"
+        class="key-input"
+        placeholder="ACCESS KEY"
+        autocomplete="off"
+      >
+
+      <button class="unlock-button" onclick="unlock()">
+        UNLOCK
+      </button>
+
+      <div id="message">
+        SYSTEM LOCKED
+      </div>
+
+    </div>
+
   </div>
+
+
+  <!-- MAIN WEBSITE -->
+
+  <main id="main-site">
+
+    <section class="hero">
+
+      <div class="status">
+        ● System Online
+      </div>
+
+      <h1 class="main-logo">
+        GRABITUK
+      </h1>
+
+      <p class="tagline">
+        TECH. PRIVACY. MODS. YOUR WAY.
+      </p>
+
+      <a href="#tech" class="hero-button">
+        ENTER GRABITUK ↓
+      </a>
+
+    </section>
+
+
+    <section class="products" id="tech">
+
+      <div class="section-label">
+        WHAT WE DO
+      </div>
+
+      <h2 class="section-title">
+        Technology without the boring.
+      </h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🔐</div>
+          <h3>Privacy Phones</h3>
+          <p>
+            Privacy-focused Pixel devices and setup services
+            designed for people who want more control over
+            their technology.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🎮</div>
+          <h3>Modded Devices</h3>
+          <p>
+            Customised handheld gaming devices with
+            legitimate homebrew, custom themes and
+            personalised setups.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Custom Tech</h3>
+          <p>
+            Interesting technology, accessories and
+            customised setups for people who want something
+            different.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <footer class="footer">
+      GRABITUK © 2026
+    </footer>
+
+  </main>
+
+
+  <script>
+
+    /*
+      DEMO ACCESS KEY
+
+      Change this word to whatever secret word
+      you want customers to enter.
+    */
+
+    const ACCESS_KEY = "GRABIT";
+
+    function unlock() {
+
+      const input = document.getElementById("key");
+      const message = document.getElementById("message");
+      const access = document.getElementById("access-screen");
+      const site = document.getElementById("main-site");
+
+      if (input.value.toUpperCase() === ACCESS_KEY) {
+
+        message.textContent = "ACCESS GRANTED";
+        message.className = "success";
+
+        setTimeout(() => {
+
+          access.classList.add("unlocked");
+          site.classList.add("visible");
+
+        }, 600);
+
+      } else {
+
+        message.textContent = "ACCESS DENIED";
+        message.className = "error";
+
+        input.value = "";
+
+        setTimeout(() => {
+          message.textContent = "SYSTEM LOCKED";
+          message.className = "";
+        }, 1500);
+
+      }
+    }
+
+    document.getElementById("key").addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        unlock();
+      }
+
+    });
+
+  </script>
+
 </body>
 </html>
