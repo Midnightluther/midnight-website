@@ -5,16 +5,10 @@ import { useState } from "react";
 export default function Home() {
   const [access, setAccess] = useState(false);
   const [key, setKey] = useState("");
-  const [error, setError] = useState(false);
 
   const unlock = () => {
-    if (key.toUpperCase() === "GRABIT") {
-      setAccess(true);
-      setError(false);
-    } else {
-      setError(true);
-      setKey("");
-    }
+    // ANYTHING entered will unlock the website
+    setAccess(true);
   };
 
   if (!access) {
@@ -37,9 +31,10 @@ export default function Home() {
           style={{
             width: "min(90%, 500px)",
             padding: "45px 30px",
-            background: "rgba(5,10,8,0.9)",
-            border: "1px solid rgba(0,255,136,0.3)",
-            boxShadow: "0 0 50px rgba(0,255,136,0.08)",
+            background: "rgba(5,10,8,0.92)",
+            border: "2px solid white",
+            boxShadow:
+              "0 0 35px rgba(255,255,255,0.08), 0 0 60px rgba(0,255,136,0.08)",
           }}
         >
           <div
@@ -59,6 +54,11 @@ export default function Home() {
               fontSize: "clamp(45px, 11vw, 80px)",
               fontWeight: 900,
               letterSpacing: "8px",
+              color: "white",
+
+              /* BLACK OUTLINE AROUND GRABITUK */
+              textShadow:
+                "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 20px rgba(0,255,136,0.15)",
             }}
           >
             GRABITUK
@@ -86,7 +86,7 @@ export default function Home() {
           </p>
 
           <input
-            type="password"
+            type="text"
             value={key}
             onChange={(e) => setKey(e.target.value)}
             onKeyDown={(e) => {
@@ -101,7 +101,7 @@ export default function Home() {
               color: "#00ff88",
               textAlign: "center",
               fontSize: "16px",
-              letterSpacing: "5px",
+              letterSpacing: "4px",
               outline: "none",
               boxSizing: "border-box",
             }}
@@ -126,13 +126,13 @@ export default function Home() {
 
           <p
             style={{
-              color: error ? "#ff4545" : "#555",
+              color: "#555",
               fontSize: "12px",
               letterSpacing: "2px",
               marginTop: "18px",
             }}
           >
-            {error ? "ACCESS DENIED" : "SYSTEM LOCKED"}
+            SYSTEM LOCKED
           </p>
         </div>
       </main>
@@ -148,6 +148,7 @@ export default function Home() {
         fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
+
       {/* HERO */}
 
       <section
@@ -182,10 +183,11 @@ export default function Home() {
             fontWeight: 900,
             letterSpacing: "8px",
             lineHeight: 0.9,
-            background:
-              "linear-gradient(180deg, #ffffff, #999999, #ffffff)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "white",
+
+            /* BLACK OUTLINE */
+            textShadow:
+              "-3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 0 35px rgba(0,255,136,0.12)",
           }}
         >
           GRABITUK
@@ -217,6 +219,7 @@ export default function Home() {
           EXPLORE GRABITUK ↓
         </a>
       </section>
+
 
       {/* INTRO */}
 
@@ -262,6 +265,7 @@ export default function Home() {
         </p>
       </section>
 
+
       {/* CARDS */}
 
       <section
@@ -275,11 +279,11 @@ export default function Home() {
             maxWidth: "1100px",
             margin: "auto",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(250px, 1fr))",
             gap: "20px",
           }}
         >
-          {/* PHONE */}
 
           <div
             style={{
@@ -294,18 +298,12 @@ export default function Home() {
               Privacy Phones
             </h3>
 
-            <p
-              style={{
-                color: "#888",
-                lineHeight: 1.7,
-              }}
-            >
+            <p style={{ color: "#888", lineHeight: 1.7 }}>
               Privacy-focused Pixel devices and setup services
               for people who want more control over their technology.
             </p>
           </div>
 
-          {/* GAMING */}
 
           <div
             style={{
@@ -320,18 +318,12 @@ export default function Home() {
               Modded Devices
             </h3>
 
-            <p
-              style={{
-                color: "#888",
-                lineHeight: 1.7,
-              }}
-            >
+            <p style={{ color: "#888", lineHeight: 1.7 }}>
               Customised Nintendo and handheld devices with
               legitimate homebrew, themes and personalised setups.
             </p>
           </div>
 
-          {/* TECH */}
 
           <div
             style={{
@@ -346,18 +338,15 @@ export default function Home() {
               Custom Tech
             </h3>
 
-            <p
-              style={{
-                color: "#888",
-                lineHeight: 1.7,
-              }}
-            >
+            <p style={{ color: "#888", lineHeight: 1.7 }}>
               Interesting technology, accessories and customised
               setups for people who want something different.
             </p>
           </div>
+
         </div>
       </section>
+
 
       {/* FOOTER */}
 
@@ -388,6 +377,7 @@ export default function Home() {
           TECH. PRIVACY. MODS.
         </p>
       </footer>
+
     </main>
   );
 }
