@@ -157,13 +157,13 @@ export default function Home() {
 
       <section
         style={{
-          minHeight: "55vh",
+          minHeight: "65vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          padding: "50px 20px 25px",
+          padding: "60px 20px",
           boxSizing: "border-box",
         }}
       >
@@ -195,7 +195,6 @@ export default function Home() {
             color: "#00ff88",
             marginTop: "15px",
             fontWeight: 700,
-            marginBottom: "8px",
           }}
         >
           YOUR WAY.
@@ -206,7 +205,7 @@ export default function Home() {
             maxWidth: "550px",
             color: "#888",
             lineHeight: 1.6,
-            marginTop: "10px",
+            marginTop: "20px",
             fontSize: "15px",
           }}
         >
@@ -220,7 +219,7 @@ export default function Home() {
         style={{
           maxWidth: "1000px",
           margin: "0 auto",
-          padding: "10px 20px 80px",
+          padding: "30px 20px 80px",
         }}
       >
         <h2
@@ -233,19 +232,14 @@ export default function Home() {
           EXPLORE GRABITUK
         </h2>
 
-        {/* PRIVACY PHONES */}
+        {/* PHONE */}
 
-        <a
-          href="#privacy-phones"
+        <div
           style={{
-            display: "block",
-            textDecoration: "none",
-            color: "white",
             background: "#080808",
             border: "1px solid #222",
             marginBottom: "30px",
             overflow: "hidden",
-            cursor: "pointer",
           }}
         >
           <div
@@ -283,9 +277,9 @@ export default function Home() {
               configured settings.
             </p>
           </div>
-        </a>
+        </div>
 
-        {/* OTHER DEVICES */}
+        {/* MODDED DEVICES */}
 
         <div
           style={{
@@ -295,18 +289,11 @@ export default function Home() {
             gap: "30px",
           }}
         >
-          {/* MODDED DEVICES */}
-
-          <a
-            href="#modded-devices"
+          <div
             style={{
-              display: "block",
-              textDecoration: "none",
-              color: "white",
               background: "#080808",
               border: "1px solid #222",
               overflow: "hidden",
-              cursor: "pointer",
             }}
           >
             <div
@@ -343,20 +330,15 @@ export default function Home() {
                 Custom handhelds with unique software, themes and setups.
               </p>
             </div>
-          </a>
+          </div>
 
           {/* CUSTOM TECH */}
 
-          <a
-            href="#custom-tech"
+          <div
             style={{
-              display: "block",
-              textDecoration: "none",
-              color: "white",
               background: "#080808",
               border: "1px solid #222",
               overflow: "hidden",
-              cursor: "pointer",
             }}
           >
             <div
@@ -394,79 +376,27 @@ export default function Home() {
                 something different.
               </p>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* FOOTER */}
 
       <footer
         style={{
           borderTop: "1px solid #151515",
-          padding: "35px 20px",
+          padding: "30px 20px",
           textAlign: "center",
+          color: "#555",
+          letterSpacing: "2px",
+          fontSize: "12px",
         }}
       >
-        <a
-          href="mailto:Grabituk@proton.me"
-          aria-label="Email GrabitUK"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "55px",
-            height: "55px",
-            border: "1px solid #333",
-            borderRadius: "50%",
-            background: "#080808",
-            color: "#00ff88",
-            textDecoration: "none",
-            fontSize: "25px",
-            marginBottom: "12px",
-          }}
-        >
-          ✉
-        </a>
-
-        <div
-          style={{
-            color: "#888",
-            fontSize: "13px",
-            marginBottom: "12px",
-          }}
-        >
-          Email:{" "}
-          <a
-            href="mailto:Grabituk@proton.me"
-            style={{
-              color: "#00ff88",
-              textDecoration: "none",
-            }}
-          >
-            Grabituk@proton.me
-          </a>
-        </div>
-
-        <div
-          style={{
-            color: "#555",
-            letterSpacing: "2px",
-            fontSize: "12px",
-          }}
-        >
-          GRABITUK
-        </div>
-
-        <div
-          style={{
-            color: "#333",
-            letterSpacing: "2px",
-            marginTop: "5px",
-            fontSize: "11px",
-          }}
-        >
+        GRABITUK
+        <br />
+        <span style={{ color: "#333" }}>
           TECH. PRIVACY. MODS.
-        </div>
+        </span>
       </footer>
     </main>
   );
