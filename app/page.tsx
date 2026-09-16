@@ -37,7 +37,7 @@ export default function Home() {
             maxWidth: "430px",
             margin: "0 auto",
             padding: "42px 24px",
-            background: "rgba(5,10,8,0.95)",
+            background: "rgba(5,10,8,0.96)",
             border: "2px solid white",
             boxShadow: "0 0 40px rgba(0,255,136,0.12)",
             boxSizing: "border-box",
@@ -54,18 +54,17 @@ export default function Home() {
               margin: "0 0 18px",
             }}
           >
-            ● SECURE SYSTEM ONLINE
+            ● SYSTEM READY
           </p>
 
           <h1
             style={{
               width: "100%",
               margin: "0 0 18px",
-              padding: "0",
-              fontSize: "clamp(34px, 10vw, 62px)",
+              fontSize: "clamp(34px, 9vw, 58px)",
               fontWeight: 800,
               letterSpacing: "1px",
-              lineHeight: "1",
+              lineHeight: 1,
               color: "white",
               textAlign: "center",
               fontFamily:
@@ -135,7 +134,7 @@ export default function Home() {
               cursor: "pointer",
             }}
           >
-            UNLOCK
+            ENTER
           </button>
 
           <p
@@ -146,7 +145,7 @@ export default function Home() {
               margin: "18px 0 0",
             }}
           >
-            SYSTEM LOCKED
+            GRABITUK ACCESS
           </p>
         </div>
       </main>
@@ -273,7 +272,8 @@ export default function Home() {
             <h3>Privacy Phones</h3>
 
             <p style={{ color: "#777" }}>
-              Privacy-focused Pixel phones and GrapheneOS setups.
+              Pixel phones with GrapheneOS privacy features and carefully
+              configured settings.
             </p>
 
             {openCard === "phones" && (
@@ -284,9 +284,10 @@ export default function Home() {
                   marginTop: "20px",
                 }}
               >
-                Custom privacy-focused setups using compatible Pixel devices
-                and GrapheneOS, with features such as app isolation,
-                permissions and separate user profiles.
+                Privacy-focused Pixel setups using GrapheneOS. Depending on
+                the setup, this can include stronger app isolation, permission
+                controls, separate user profiles and optional Google service
+                configurations.
               </p>
             )}
           </div>
@@ -320,7 +321,8 @@ export default function Home() {
                 }}
               >
                 Custom themes, menus, homebrew and useful system tools for
-                compatible devices.
+                compatible devices. Devices and software are supplied only
+                where legally permitted and supported.
               </p>
             )}
           </div>
@@ -353,11 +355,146 @@ export default function Home() {
                   marginTop: "20px",
                 }}
               >
-                From useful accessories to unique technology setups, built
-                around how you actually want to use your devices.
+                Useful accessories, unusual technology and personalised
+                setups designed around how you want to use your devices.
               </p>
             )}
           </div>
+        </div>
+      </section>
+
+      <section
+        style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+          padding: "40px 20px 70px",
+        }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "30px",
+            marginBottom: "25px",
+          }}
+        >
+          TERMS & CONDITIONS
+        </h2>
+
+        <div
+          style={{
+            background: "#080808",
+            border: "1px solid #222",
+            padding: "30px",
+            color: "#999",
+            lineHeight: 1.7,
+            fontSize: "14px",
+          }}
+        >
+          <p>
+            <strong style={{ color: "white" }}>1. About GrabitUK</strong>
+          </p>
+
+          <p>
+            GrabitUK provides technology products, customised devices,
+            accessories and related services. Product descriptions,
+            specifications and availability will be provided before purchase.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>2. Product descriptions</strong>
+          </p>
+
+          <p>
+            We aim to describe products and services accurately. Customers
+            should check the individual product description, condition,
+            specifications and included items before purchasing.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>3. Customer rights</strong>
+          </p>
+
+          <p>
+            Nothing on this website is intended to remove or restrict rights
+            that customers have under applicable UK consumer law. Where
+            applicable, customers retain their statutory rights relating to
+            product quality, description, fitness for purpose, refunds and
+            cancellation.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>4. Customised devices</strong>
+          </p>
+
+          <p>
+            Customised devices may differ from standard manufacturer
+            configurations. Any modifications, software changes or additional
+            features will be explained in the relevant product description.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>5. Privacy-focused phones</strong>
+          </p>
+
+          <p>
+            GrapheneOS can provide additional privacy and security features on
+            compatible devices. No device or software configuration should be
+            described as completely secure, anonymous or immune from attack.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>6. Software and modifications</strong>
+          </p>
+
+          <p>
+            Customers are responsible for using devices and software
+            lawfully. GrabitUK does not provide or promote pirated games,
+            copyrighted material without permission, or unlawful software.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>7. Payments and orders</strong>
+          </p>
+
+          <p>
+            Orders are subject to availability and confirmation. The final
+            price, delivery information and applicable terms will be shown
+            before an order is completed.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>8. Returns and refunds</strong>
+          </p>
+
+          <p>
+            Where UK consumer cancellation or return rights apply, they will
+            be honoured in accordance with applicable law. Specific exceptions
+            may apply where permitted by law, including certain customised or
+            personalised products.
+          </p>
+
+          <p>
+            <strong style={{ color: "white" }}>9. Website information</strong>
+          </p>
+
+          <p>
+            Website information is provided for general product and service
+            information. Product-specific terms and conditions may apply to
+            individual purchases.
+          </p>
+
+          <p
+            style={{
+              marginTop: "25px",
+              paddingTop: "20px",
+              borderTop: "1px solid #222",
+              color: "#555",
+              fontSize: "12px",
+            }}
+          >
+            These terms are intended as general business wording and should be
+            reviewed for your specific business before you begin trading.
+          </p>
         </div>
       </section>
 
