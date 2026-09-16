@@ -34,13 +34,16 @@ export default function Home() {
         <div
           style={{
             width: "100%",
-            maxWidth: "460px",
+            maxWidth: "430px",
             margin: "0 auto",
-            padding: "42px 28px",
+            padding: "42px 24px",
             background: "rgba(5,10,8,0.95)",
             border: "2px solid white",
             boxShadow: "0 0 40px rgba(0,255,136,0.12)",
             boxSizing: "border-box",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <p
@@ -56,17 +59,20 @@ export default function Home() {
 
           <h1
             style={{
+              width: "100%",
               margin: "0 0 18px",
-              fontSize: "clamp(40px, 9vw, 68px)",
+              padding: "0",
+              fontSize: "clamp(34px, 10vw, 62px)",
               fontWeight: 800,
-              letterSpacing: "2px",
-              lineHeight: 1,
+              letterSpacing: "1px",
+              lineHeight: "1",
               color: "white",
-              whiteSpace: "nowrap",
+              textAlign: "center",
               fontFamily:
                 "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
               textShadow:
                 "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000",
+              boxSizing: "border-box",
             }}
           >
             GRABITUK
@@ -87,7 +93,7 @@ export default function Home() {
             style={{
               color: "#666",
               fontSize: "13px",
-              margin: "0 auto 20px",
+              margin: "0 0 20px",
             }}
           >
             Enter your access key to continue
@@ -104,7 +110,6 @@ export default function Home() {
             style={{
               width: "100%",
               padding: "16px",
-              margin: "0",
               background: "#000",
               border: "1px solid #333",
               color: "#00ff88",
@@ -128,7 +133,6 @@ export default function Home() {
               fontWeight: 900,
               letterSpacing: "2px",
               cursor: "pointer",
-              boxSizing: "border-box",
             }}
           >
             UNLOCK
