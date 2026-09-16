@@ -11,9 +11,17 @@ export default function Home() {
 
   const font = 'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif';
 
+  /* =========================
+     SECRET ACCESS
+  ========================= */
+
   const unlock = () => {
     setAccess(true);
   };
+
+  /* =========================
+     EMAIL SIGNUP
+  ========================= */
 
   const joinDrop = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,17 +35,20 @@ export default function Home() {
     setMessage("Joining...");
 
     try {
-      const response = await fetch("https://formspree.io/f/moevqvjq", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          message: "GrabitUK mailing list signup",
-        }),
-      });
+      const response = await fetch(
+        "https://formspree.io/f/moevqvjq",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            message: "GrabitUK mailing list signup",
+          }),
+        }
+      );
 
       if (response.ok) {
         setMessage("✓ YOU'RE ON THE LIST");
@@ -53,17 +64,17 @@ export default function Home() {
   };
 
   /* =========================
-     SECRET ACCESS SCREEN
+     ACCESS SCREEN
   ========================= */
 
   if (!access) {
     return (
       <main
         style={{
-          minHeight: "100vh",
+          minHeight: "100dvh",
           width: "100%",
           margin: 0,
-          padding: "24px",
+          padding: "18px",
           boxSizing: "border-box",
           color: "#f5f5f5",
           fontFamily: font,
@@ -85,12 +96,13 @@ export default function Home() {
         <div
           style={{
             width: "100%",
-            maxWidth: "440px",
-            padding: "46px 30px",
+            maxWidth: "420px",
+            padding: "40px 22px",
             boxSizing: "border-box",
             background:
               "linear-gradient(145deg, rgba(14,17,15,0.98), rgba(5,7,6,0.98))",
             border: "1px solid #343936",
+            borderRadius: "12px",
             boxShadow: "0 25px 70px rgba(0,0,0,0.65)",
             textAlign: "center",
           }}
@@ -103,7 +115,7 @@ export default function Home() {
               padding: "7px 11px",
               border: "1px solid #183d2a",
               background: "#09120d",
-              marginBottom: "25px",
+              marginBottom: "22px",
             }}
           >
             <span
@@ -112,6 +124,7 @@ export default function Home() {
                 height: "6px",
                 borderRadius: "50%",
                 background: "#00e67a",
+                boxShadow: "0 0 10px #00e67a",
               }}
             />
 
@@ -130,7 +143,8 @@ export default function Home() {
           <h1
             style={{
               margin: 0,
-              fontSize: "clamp(38px, 9vw, 58px)",
+              color: "#fff",
+              fontSize: "clamp(36px, 12vw, 58px)",
               fontWeight: 800,
               letterSpacing: "-1px",
             }}
@@ -143,16 +157,16 @@ export default function Home() {
               width: "45px",
               height: "2px",
               background: "#00e67a",
-              margin: "20px auto",
+              margin: "18px auto",
             }}
           />
 
           <p
             style={{
-              margin: "0 0 8px",
+              margin: "0 0 7px",
               color: "#d0d0d0",
-              fontSize: "12px",
-              fontWeight: 600,
+              fontSize: "11px",
+              fontWeight: 700,
               letterSpacing: "3px",
             }}
           >
@@ -161,9 +175,9 @@ export default function Home() {
 
           <p
             style={{
-              margin: "0 0 25px",
+              margin: "0 0 22px",
               color: "#777",
-              fontSize: "13px",
+              fontSize: "12px",
             }}
           >
             Enter your access key to continue
@@ -183,6 +197,7 @@ export default function Home() {
               boxSizing: "border-box",
               background: "#050605",
               border: "1px solid #303431",
+              borderRadius: "6px",
               color: "#00e67a",
               textAlign: "center",
               fontFamily: font,
@@ -197,13 +212,14 @@ export default function Home() {
             onClick={unlock}
             style={{
               width: "100%",
-              marginTop: "12px",
+              marginTop: "11px",
               padding: "16px",
               border: "none",
+              borderRadius: "6px",
               background: "#00e67a",
               color: "#020302",
               fontFamily: font,
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: 800,
               letterSpacing: "2px",
               cursor: "pointer",
@@ -214,9 +230,9 @@ export default function Home() {
 
           <p
             style={{
-              margin: "22px 0 0",
+              margin: "20px 0 0",
               color: "#4f5551",
-              fontSize: "9px",
+              fontSize: "8px",
               fontWeight: 600,
               letterSpacing: "2px",
             }}
@@ -237,36 +253,95 @@ export default function Home() {
       style={{
         minHeight: "100vh",
         width: "100%",
+        overflowX: "hidden",
         margin: 0,
         background: "#070807",
         color: "#f4f4f4",
         fontFamily: font,
       }}
     >
+      {/* TOP BAR */}
+
+      <header
+        style={{
+          width: "100%",
+          padding: "17px 18px",
+          boxSizing: "border-box",
+          borderBottom: "1px solid #191d1a",
+          background: "#060806",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1050px",
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                color: "#fff",
+                fontSize: "17px",
+                fontWeight: 800,
+                letterSpacing: "1px",
+              }}
+            >
+              GRABITUK
+            </div>
+
+            <div
+              style={{
+                color: "#00e67a",
+                fontSize: "7px",
+                fontWeight: 700,
+                letterSpacing: "2.5px",
+                marginTop: "2px",
+              }}
+            >
+              TECH. PRIVACY. MODS.
+            </div>
+          </div>
+
+          <div
+            style={{
+              color: "#00e67a",
+              fontSize: "9px",
+              fontWeight: 700,
+              letterSpacing: "2px",
+              border: "1px solid #183d2a",
+              padding: "7px 9px",
+            }}
+          >
+            ONLINE
+          </div>
+        </div>
+      </header>
+
       {/* HERO */}
 
       <section
         style={{
-          minHeight: "620px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "65px 20px 55px",
+          padding: "65px 18px 48px",
           boxSizing: "border-box",
           background:
-            "radial-gradient(circle at 50% 25%, #112017 0%, #090b09 42%, #070807 75%)",
-          borderBottom: "1px solid #1c1f1d",
+            "radial-gradient(circle at 50% 20%, #102017 0%, #090b09 42%, #070807 75%)",
         }}
       >
         <p
           style={{
             color: "#00e67a",
-            fontSize: "10px",
+            fontSize: "9px",
             fontWeight: 700,
             letterSpacing: "4px",
-            margin: "0 0 22px",
+            margin: "0 0 19px",
           }}
         >
           WELCOME TO GRABITUK
@@ -274,26 +349,30 @@ export default function Home() {
 
         <h1
           style={{
-            maxWidth: "900px",
+            width: "100%",
+            maxWidth: "850px",
             margin: 0,
             color: "#fff",
-            fontSize: "clamp(42px, 8vw, 78px)",
-            lineHeight: 0.98,
-            fontWeight: 800,
+            fontSize: "clamp(39px, 11vw, 76px)",
+            lineHeight: 0.97,
+            fontWeight: 850,
             letterSpacing: "-2px",
           }}
         >
-          TECH. PRIVACY.
+          TECH.
+          <br />
+          PRIVACY.
           <br />
           MODS.
         </h1>
 
         <p
           style={{
-            margin: "20px 0 7px",
+            margin: "18px 0 7px",
             color: "#00e67a",
-            fontSize: "clamp(18px, 4vw, 26px)",
-            fontWeight: 700,
+            fontSize: "clamp(20px, 6vw, 28px)",
+            fontWeight: 800,
+            letterSpacing: "1px",
           }}
         >
           YOUR WAY.
@@ -301,33 +380,35 @@ export default function Home() {
 
         <p
           style={{
-            margin: "0 0 35px",
+            margin: "0 0 31px",
             color: "#858985",
-            fontSize: "14px",
+            fontSize: "13px",
           }}
         >
           The fun side of tech.
         </p>
 
-        {/* MAILING LIST NOW HIGH UP */}
+        {/* JOIN LIST */}
 
         <div
           style={{
             width: "100%",
-            maxWidth: "650px",
-            padding: "28px",
+            maxWidth: "620px",
+            padding: "22px 16px",
             boxSizing: "border-box",
-            background: "rgba(9, 12, 10, 0.85)",
-            border: "1px solid #242a26",
+            background: "rgba(9,12,10,0.9)",
+            border: "1px solid #24442f",
+            borderRadius: "12px",
+            boxShadow: "0 15px 40px rgba(0,0,0,0.25)",
           }}
         >
           <p
             style={{
               color: "#00e67a",
-              fontSize: "9px",
+              fontSize: "8px",
               fontWeight: 700,
               letterSpacing: "3px",
-              margin: "0 0 9px",
+              margin: "0 0 8px",
             }}
           >
             GRABITUK MEMBERS
@@ -335,9 +416,9 @@ export default function Home() {
 
           <h2
             style={{
-              margin: "0 0 8px",
-              fontSize: "22px",
-              fontWeight: 700,
+              margin: "0 0 7px",
+              fontSize: "clamp(20px, 6vw, 25px)",
+              fontWeight: 750,
             }}
           >
             Get in on the next drop.
@@ -346,20 +427,23 @@ export default function Home() {
           <p
             style={{
               color: "#858985",
-              fontSize: "13px",
-              lineHeight: 1.5,
-              margin: "0 0 20px",
+              fontSize: "12px",
+              lineHeight: 1.55,
+              margin: "0 auto 18px",
+              maxWidth: "460px",
             }}
           >
-            Sign up for exclusive product drops, subscriber discounts
-            and GrabitUK news.
+            Exclusive product drops, subscriber discounts and GrabitUK
+            news.
           </p>
 
           <form
             onSubmit={joinDrop}
             style={{
-              display: "flex",
-              flexWrap: "wrap",
+              width: "100%",
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(190px, 1fr))",
               gap: "9px",
             }}
           >
@@ -375,12 +459,13 @@ export default function Home() {
               placeholder="Email address"
               aria-label="Email address"
               style={{
-                flex: "1 1 300px",
+                width: "100%",
                 minWidth: 0,
                 padding: "15px",
                 boxSizing: "border-box",
                 background: "#050605",
                 border: "1px solid #303431",
+                borderRadius: "6px",
                 color: "#fff",
                 fontFamily: font,
                 fontSize: "14px",
@@ -392,9 +477,10 @@ export default function Home() {
               type="submit"
               disabled={submitting}
               style={{
-                flex: "1 1 155px",
-                padding: "15px 22px",
+                width: "100%",
+                padding: "15px",
                 border: "none",
+                borderRadius: "6px",
                 background: submitting ? "#64776c" : "#00e67a",
                 color: "#020302",
                 fontFamily: font,
@@ -410,24 +496,28 @@ export default function Home() {
 
           <p
             style={{
-              margin: "12px 0 0",
+              margin: "11px auto 0",
+              maxWidth: "470px",
               color: "#555b57",
-              fontSize: "9px",
+              fontSize: "8px",
               lineHeight: 1.5,
             }}
           >
             By joining, you agree to receive GrabitUK marketing emails,
-            product news and offers. You can unsubscribe at any time.
+            product news and offers. Unsubscribe at any time.
           </p>
 
           {message && (
             <p
               style={{
-                margin: "14px 0 0",
-                color: "#00e67a",
+                margin: "13px 0 0",
+                color:
+                  message.includes("wrong") ||
+                  message.includes("Please")
+                    ? "#ddd"
+                    : "#00e67a",
                 fontSize: "11px",
                 fontWeight: 700,
-                letterSpacing: "1px",
               }}
             >
               {message}
@@ -436,53 +526,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRIVACY / GRAPHENEOS */}
+      {/* PRODUCTS */}
 
       <section
         style={{
+          width: "100%",
           maxWidth: "1050px",
           margin: "0 auto",
-          padding: "70px 20px 30px",
+          padding: "25px 14px 70px",
+          boxSizing: "border-box",
         }}
       >
+        {/* PRIVACY PHONES */}
+
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit, minmax(280px, 1fr))",
-            background: "#0c0e0d",
-            border: "1px solid #222623",
+            background:
+              "linear-gradient(145deg, #0d100e, #090b0a)",
+            border: "1px solid #222823",
+            borderRadius: "14px",
             overflow: "hidden",
+            marginBottom: "16px",
           }}
         >
           <div
             style={{
-              minHeight: "330px",
+              minHeight: "235px",
+              padding: "30px 20px",
+              boxSizing: "border-box",
+              background:
+                "radial-gradient(circle at center, #17291e, #090b0a 68%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background:
-                "radial-gradient(circle at center, #17271e, #090b0a 68%)",
             }}
           >
-            <div
-              style={{
-                textAlign: "center",
-              }}
-            >
+            <div style={{ textAlign: "center" }}>
               <div
                 style={{
-                  width: "95px",
-                  height: "95px",
-                  margin: "0 auto 18px",
+                  width: "82px",
+                  height: "82px",
+                  margin: "0 auto 16px",
                   border: "1px solid #29533b",
-                  borderRadius: "24px",
+                  borderRadius: "22px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#00e67a",
-                  fontSize: "44px",
+                  fontSize: "37px",
                   fontWeight: 800,
+                  boxShadow: "0 0 35px rgba(0,230,122,0.08)",
                 }}
               >
                 G
@@ -490,10 +583,10 @@ export default function Home() {
 
               <div
                 style={{
-                  color: "#d9ddda",
+                  color: "#fff",
                   fontSize: "13px",
-                  fontWeight: 700,
-                  letterSpacing: "3px",
+                  fontWeight: 800,
+                  letterSpacing: "2px",
                 }}
               >
                 GRAPHENEOS
@@ -501,9 +594,10 @@ export default function Home() {
 
               <div
                 style={{
-                  color: "#5d645f",
-                  fontSize: "10px",
-                  marginTop: "7px",
+                  color: "#667068",
+                  fontSize: "8px",
+                  letterSpacing: "1.5px",
+                  marginTop: "6px",
                 }}
               >
                 PRIVACY-FOCUSED ANDROID OS
@@ -513,19 +607,16 @@ export default function Home() {
 
           <div
             style={{
-              padding: "45px 35px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
+              padding: "27px 20px 30px",
             }}
           >
             <p
               style={{
                 color: "#00e67a",
-                fontSize: "9px",
+                fontSize: "8px",
                 fontWeight: 700,
                 letterSpacing: "3px",
-                margin: "0 0 10px",
+                margin: "0 0 9px",
               }}
             >
               PRIVACY PHONES
@@ -533,9 +624,10 @@ export default function Home() {
 
             <h2
               style={{
-                margin: "0 0 14px",
-                fontSize: "clamp(27px, 5vw, 38px)",
-                fontWeight: 750,
+                margin: "0 0 13px",
+                fontSize: "clamp(27px, 8vw, 38px)",
+                lineHeight: 1.05,
+                fontWeight: 800,
                 letterSpacing: "-1px",
               }}
             >
@@ -547,8 +639,8 @@ export default function Home() {
             <p
               style={{
                 color: "#929793",
-                fontSize: "14px",
-                lineHeight: 1.7,
+                fontSize: "13px",
+                lineHeight: 1.65,
                 margin: 0,
               }}
             >
@@ -558,252 +650,239 @@ export default function Home() {
 
             <div
               style={{
-                marginTop: "22px",
+                marginTop: "19px",
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "8px",
+                gap: "7px",
               }}
             >
-              {[
-                "GrapheneOS",
-                "Google Pixel",
-                "Privacy",
-                "Security",
-              ].map((item) => (
-                <span
-                  key={item}
-                  style={{
-                    padding: "7px 10px",
-                    border: "1px solid #242a26",
-                    background: "#090b0a",
-                    color: "#8e948f",
-                    fontSize: "9px",
-                    letterSpacing: "1px",
-                  }}
-                >
-                  {item}
-                </span>
-              ))}
+              {["GrapheneOS", "Google Pixel", "Privacy", "Security"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    style={{
+                      padding: "7px 9px",
+                      border: "1px solid #29302b",
+                      borderRadius: "20px",
+                      background: "#090b0a",
+                      color: "#a1a6a2",
+                      fontSize: "9px",
+                    }}
+                  >
+                    {item}
+                  </span>
+                )
+              )}
             </div>
+
+            <p
+              style={{
+                color: "#4d534e",
+                fontSize: "8px",
+                lineHeight: 1.5,
+                margin: "18px 0 0",
+              }}
+            >
+              GrabitUK is an independent seller and is not affiliated
+              with or endorsed by GrapheneOS or Google.
+            </p>
           </div>
         </div>
 
-        <p
-          style={{
-            color: "#454a46",
-            fontSize: "9px",
-            lineHeight: 1.5,
-            margin: "10px 0 0",
-          }}
-        >
-          GrabitUK is an independent seller and is not affiliated with
-          or endorsed by GrapheneOS or Google.
-        </p>
-      </section>
+        {/* MODDED NINTENDO DEVICES */}
 
-      {/* MODDED DEVICES */}
-
-      <section
-        style={{
-          maxWidth: "1050px",
-          margin: "0 auto",
-          padding: "30px 20px 75px",
-        }}
-      >
         <div
           style={{
-            marginBottom: "30px",
-            textAlign: "center",
+            background:
+              "linear-gradient(145deg, #0d100e, #090b0a)",
+            border: "1px solid #222823",
+            borderRadius: "14px",
+            overflow: "hidden",
+            marginBottom: "16px",
           }}
         >
+          {/* YOUR ACTUAL GRABITUK LOGO */}
+
+          <div
+            style={{
+              minHeight: "260px",
+              padding: "20px",
+              boxSizing: "border-box",
+              background:
+                "radial-gradient(circle at center, #18231d, #080a09 70%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src="/IMG_5923.PNG"
+              alt="GrabitUK custom gaming and modded devices"
+              style={{
+                display: "block",
+                width: "100%",
+                maxWidth: "390px",
+                height: "auto",
+                borderRadius: "10px",
+                objectFit: "contain",
+                boxShadow: "0 18px 45px rgba(0,0,0,0.35)",
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              padding: "27px 20px 30px",
+            }}
+          >
+            <p
+              style={{
+                color: "#00e67a",
+                fontSize: "8px",
+                fontWeight: 700,
+                letterSpacing: "3px",
+                margin: "0 0 9px",
+              }}
+            >
+              MODDED DEVICES
+            </p>
+
+            <h2
+              style={{
+                margin: "0 0 13px",
+                fontSize: "clamp(27px, 8vw, 38px)",
+                lineHeight: 1.05,
+                fontWeight: 800,
+                letterSpacing: "-1px",
+              }}
+            >
+              Nintendo DS Family.
+            </h2>
+
+            <p
+              style={{
+                color: "#929793",
+                fontSize: "13px",
+                lineHeight: 1.65,
+                margin: 0,
+              }}
+            >
+              Custom Nintendo DS, 2DS and 3DS family devices with
+              personalised themes, homebrew setups and customisation.
+            </p>
+
+            <div
+              style={{
+                marginTop: "19px",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "7px",
+              }}
+            >
+              {["Nintendo DS", "2DS", "3DS", "Homebrew"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    style={{
+                      padding: "7px 9px",
+                      border: "1px solid #29302b",
+                      borderRadius: "20px",
+                      background: "#090b0a",
+                      color: "#a1a6a2",
+                      fontSize: "9px",
+                    }}
+                  >
+                    {item}
+                  </span>
+                )
+              )}
+            </div>
+
+            <p
+              style={{
+                color: "#4d534e",
+                fontSize: "8px",
+                lineHeight: 1.5,
+                margin: "18px 0 0",
+              }}
+            >
+              Nintendo product names are used only to identify
+              compatible devices. GrabitUK is not affiliated with or
+              endorsed by Nintendo.
+            </p>
+          </div>
+        </div>
+
+        {/* CUSTOM TECH */}
+
+        <div
+          style={{
+            background:
+              "linear-gradient(145deg, #0d100e, #090b0a)",
+            border: "1px solid #222823",
+            borderRadius: "14px",
+            padding: "30px 20px",
+          }}
+        >
+          <div
+            style={{
+              width: "55px",
+              height: "55px",
+              border: "1px solid #23442f",
+              borderRadius: "13px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#09120d",
+              color: "#00e67a",
+              fontSize: "28px",
+              marginBottom: "20px",
+            }}
+          >
+            ⚡
+          </div>
+
           <p
             style={{
               color: "#00e67a",
-              fontSize: "9px",
+              fontSize: "8px",
               fontWeight: 700,
               letterSpacing: "3px",
               margin: "0 0 9px",
             }}
           >
-            CUSTOM HARDWARE
+            CUSTOM TECH
           </p>
 
           <h2
             style={{
-              margin: 0,
-              fontSize: "clamp(28px, 5vw, 38px)",
-              fontWeight: 750,
+              margin: "0 0 11px",
+              fontSize: "26px",
+              fontWeight: 800,
             }}
           >
-            Modded Devices
+            Accessories & More.
           </h2>
-        </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "22px",
-          }}
-        >
-          {/* NINTENDO HANDHELDS */}
-
-          <div
+          <p
             style={{
-              background: "#0c0e0d",
-              border: "1px solid #222623",
-              overflow: "hidden",
+              color: "#929793",
+              margin: 0,
+              lineHeight: 1.65,
+              fontSize: "13px",
             }}
           >
-            <div
-              style={{
-                height: "270px",
-                background:
-                  "radial-gradient(circle at center, #181c19, #090a09 70%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "82px",
-                }}
-              >
-                🎮
-              </div>
-            </div>
-
-            <div
-              style={{
-                padding: "27px",
-              }}
-            >
-              <p
-                style={{
-                  color: "#00e67a",
-                  fontSize: "9px",
-                  fontWeight: 700,
-                  letterSpacing: "2px",
-                  margin: "0 0 8px",
-                }}
-              >
-                HANDHELDS
-              </p>
-
-              <h3
-                style={{
-                  margin: "0 0 11px",
-                  fontSize: "22px",
-                }}
-              >
-                Nintendo DS Family
-              </h3>
-
-              <p
-                style={{
-                  color: "#8d918e",
-                  margin: 0,
-                  lineHeight: 1.65,
-                  fontSize: "13px",
-                }}
-              >
-                Custom Nintendo DS, 2DS and 3DS family devices with
-                personalised themes, homebrew setups and customisation.
-              </p>
-            </div>
-          </div>
-
-          {/* CUSTOM TECH */}
-
-          <div
-            style={{
-              background: "#0c0e0d",
-              border: "1px solid #222623",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                height: "270px",
-                background:
-                  "radial-gradient(circle at center, #17221b, #090a09 70%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "78px",
-                  color: "#00e67a",
-                }}
-              >
-                ⚡
-              </div>
-            </div>
-
-            <div
-              style={{
-                padding: "27px",
-              }}
-            >
-              <p
-                style={{
-                  color: "#00e67a",
-                  fontSize: "9px",
-                  fontWeight: 700,
-                  letterSpacing: "2px",
-                  margin: "0 0 8px",
-                }}
-              >
-                GRABITUK
-              </p>
-
-              <h3
-                style={{
-                  margin: "0 0 11px",
-                  fontSize: "22px",
-                }}
-              >
-                Custom Tech
-              </h3>
-
-              <p
-                style={{
-                  color: "#8d918e",
-                  margin: 0,
-                  lineHeight: 1.65,
-                  fontSize: "13px",
-                }}
-              >
-                Accessories, custom setups and personalised technology
-                for people who want something different.
-              </p>
-            </div>
-          </div>
+            Custom setups, accessories and personalised technology for
+            people looking for something different.
+          </p>
         </div>
-
-        <p
-          style={{
-            color: "#454a46",
-            fontSize: "9px",
-            lineHeight: 1.5,
-            margin: "10px 0 0",
-          }}
-        >
-          Nintendo product names are used only to identify compatible
-          devices. GrabitUK is not affiliated with or endorsed by
-          Nintendo.
-        </p>
       </section>
 
       {/* CONTACT */}
 
       <footer
         style={{
-          padding: "55px 20px 35px",
+          padding: "55px 18px 32px",
           textAlign: "center",
           background: "#050605",
           borderTop: "1px solid #1c1f1d",
@@ -811,8 +890,8 @@ export default function Home() {
       >
         <p
           style={{
-            color: "#666b67",
-            fontSize: "9px",
+            color: "#00e67a",
+            fontSize: "8px",
             fontWeight: 700,
             letterSpacing: "3px",
             margin: "0 0 10px",
@@ -821,69 +900,67 @@ export default function Home() {
           GET IN TOUCH
         </p>
 
-        <h3
+        <h2
           style={{
-            margin: "0 0 22px",
-            fontSize: "21px",
+            margin: "0 0 24px",
+            fontSize: "26px",
+            fontWeight: 800,
           }}
         >
           Contact GrabitUK
-        </h3>
+        </h2>
 
         <a
           href="mailto:Grabituk@proton.me"
-          aria-label="Email GrabitUK"
           style={{
-            display: "inline-flex",
+            width: "100%",
+            maxWidth: "390px",
+            margin: "0 auto",
+            padding: "16px",
+            boxSizing: "border-box",
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "52px",
-            height: "52px",
-            border: "1px solid #2a2e2b",
-            borderRadius: "50%",
-            background: "#0b0d0c",
-            color: "#00e67a",
+            gap: "11px",
+            background: "#0b0e0c",
+            border: "1px solid #29302b",
+            borderRadius: "10px",
+            color: "#fff",
             textDecoration: "none",
-            fontSize: "22px",
-            marginBottom: "16px",
           }}
         >
-          ✉
+          <span
+            style={{
+              color: "#00e67a",
+              fontSize: "21px",
+            }}
+          >
+            ✉
+          </span>
+
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+            }}
+          >
+            Email: Grabituk@proton.me
+          </span>
         </a>
 
         <div
           style={{
-            color: "#8d918e",
-            fontSize: "13px",
-            marginBottom: "35px",
-          }}
-        >
-          Email:{" "}
-          <a
-            href="mailto:Grabituk@proton.me"
-            style={{
-              color: "#d7dad8",
-              textDecoration: "none",
-              fontWeight: 600,
-            }}
-          >
-            Grabituk@proton.me
-          </a>
-        </div>
-
-        <div
-          style={{
+            maxWidth: "800px",
+            margin: "40px auto 0",
             paddingTop: "25px",
             borderTop: "1px solid #171917",
-            maxWidth: "900px",
-            margin: "0 auto",
           }}
         >
           <div
             style={{
-              color: "#c9ccca",
-              fontSize: "12px",
-              fontWeight: 700,
+              color: "#d9dcda",
+              fontSize: "13px",
+              fontWeight: 800,
               letterSpacing: "2px",
             }}
           >
@@ -892,8 +969,8 @@ export default function Home() {
 
           <div
             style={{
-              color: "#444844",
-              fontSize: "9px",
+              color: "#454945",
+              fontSize: "8px",
               letterSpacing: "2px",
               marginTop: "7px",
             }}
