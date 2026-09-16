@@ -1,14 +1,155 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [access, setAccess] = useState(false);
+  const [key, setKey] = useState("");
+  const [error, setError] = useState(false);
+
+  const unlock = () => {
+    if (key.toUpperCase() === "GRABIT") {
+      setAccess(true);
+      setError(false);
+    } else {
+      setError(true);
+      setKey("");
+    }
+  };
+
+  if (!access) {
+    return (
+      <main
+        style={{
+          minHeight: "100vh",
+          background:
+            "radial-gradient(circle at center, #101a14 0%, #050505 45%, #000 100%)",
+          color: "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          padding: "20px",
+        }}
+      >
+        <div
+          style={{
+            width: "min(90%, 500px)",
+            padding: "45px 30px",
+            background: "rgba(5,10,8,0.9)",
+            border: "1px solid rgba(0,255,136,0.3)",
+            boxShadow: "0 0 50px rgba(0,255,136,0.08)",
+          }}
+        >
+          <div
+            style={{
+              color: "#00ff88",
+              fontSize: "11px",
+              letterSpacing: "4px",
+              marginBottom: "20px",
+            }}
+          >
+            ● SECURE SYSTEM ONLINE
+          </div>
+
+          <h1
+            style={{
+              margin: 0,
+              fontSize: "clamp(45px, 11vw, 80px)",
+              fontWeight: 900,
+              letterSpacing: "8px",
+            }}
+          >
+            GRABITUK
+          </h1>
+
+          <p
+            style={{
+              color: "#aaa",
+              letterSpacing: "3px",
+              marginTop: "20px",
+              fontSize: "14px",
+            }}
+          >
+            SECURE ACCESS
+          </p>
+
+          <p
+            style={{
+              color: "#666",
+              fontSize: "13px",
+              marginBottom: "30px",
+            }}
+          >
+            Enter your access key to continue
+          </p>
+
+          <input
+            type="password"
+            value={key}
+            onChange={(e) => setKey(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") unlock();
+            }}
+            placeholder="ACCESS KEY"
+            style={{
+              width: "100%",
+              padding: "16px",
+              background: "#000",
+              border: "1px solid #333",
+              color: "#00ff88",
+              textAlign: "center",
+              fontSize: "16px",
+              letterSpacing: "5px",
+              outline: "none",
+              boxSizing: "border-box",
+            }}
+          />
+
+          <button
+            onClick={unlock}
+            style={{
+              width: "100%",
+              marginTop: "12px",
+              padding: "16px",
+              background: "#00ff88",
+              color: "#000",
+              border: "none",
+              fontWeight: 900,
+              letterSpacing: "2px",
+              cursor: "pointer",
+            }}
+          >
+            UNLOCK
+          </button>
+
+          <p
+            style={{
+              color: error ? "#ff4545" : "#555",
+              fontSize: "12px",
+              letterSpacing: "2px",
+              marginTop: "18px",
+            }}
+          >
+            {error ? "ACCESS DENIED" : "SYSTEM LOCKED"}
+          </p>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#000",
-        color: "#fff",
+        background: "#050505",
+        color: "white",
         fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
       {/* HERO */}
+
       <section
         style={{
           minHeight: "100vh",
@@ -19,18 +160,32 @@ export default function Home() {
           textAlign: "center",
           padding: "30px 20px",
           boxSizing: "border-box",
+          background:
+            "radial-gradient(circle at center, #101a14 0%, #050505 50%, #000 100%)",
         }}
       >
-        <div style={{ fontSize: "42px", marginBottom: "15px" }}>
-          🎮 📱 🎮
-        </div>
+        <p
+          style={{
+            color: "#00ff88",
+            letterSpacing: "4px",
+            fontSize: "11px",
+            marginBottom: "25px",
+          }}
+        >
+          ● ACCESS GRANTED
+        </p>
 
         <h1
           style={{
             margin: 0,
-            fontSize: "clamp(52px, 10vw, 100px)",
+            fontSize: "clamp(55px, 13vw, 130px)",
             fontWeight: 900,
-            letterSpacing: "4px",
+            letterSpacing: "8px",
+            lineHeight: 0.9,
+            background:
+              "linear-gradient(180deg, #ffffff, #999999, #ffffff)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
           }}
         >
           GRABITUK
@@ -38,236 +193,199 @@ export default function Home() {
 
         <p
           style={{
-            fontSize: "clamp(18px, 3vw, 26px)",
-            margin: "20px 0 30px",
-            color: "#ddd",
+            marginTop: "35px",
+            color: "#aaa",
+            fontSize: "clamp(15px, 2vw, 20px)",
+            letterSpacing: "3px",
           }}
         >
-          Your home for phones, gaming and modern tech.
+          TECH. PRIVACY. MODS. YOUR WAY.
         </p>
 
         <a
-          href="#shop"
+          href="#explore"
           style={{
-            display: "inline-block",
-            background: "#fff",
-            color: "#000",
+            marginTop: "45px",
             padding: "15px 30px",
-            borderRadius: "8px",
+            border: "1px solid #00ff88",
+            color: "#00ff88",
             textDecoration: "none",
-            fontWeight: "bold",
-            fontSize: "17px",
+            letterSpacing: "2px",
+            fontSize: "12px",
           }}
         >
-          Explore our tech ↓
+          EXPLORE GRABITUK ↓
         </a>
       </section>
 
-      {/* SHOP SECTION */}
+      {/* INTRO */}
+
       <section
-        id="shop"
+        id="explore"
         style={{
-          minHeight: "100vh",
-          padding: "80px 20px",
-          boxSizing: "border-box",
+          padding: "100px 20px",
           textAlign: "center",
+          background: "#080808",
         }}
       >
-        <h2
+        <p
           style={{
-            fontSize: "clamp(36px, 7vw, 60px)",
-            marginBottom: "15px",
+            color: "#00ff88",
+            letterSpacing: "4px",
+            fontSize: "11px",
           }}
         >
-          Tech worth grabbing.
+          WHAT WE DO
+        </p>
+
+        <h2
+          style={{
+            fontSize: "clamp(35px, 7vw, 65px)",
+            margin: "15px 0 20px",
+          }}
+        >
+          Technology without the boring.
         </h2>
 
         <p
           style={{
             maxWidth: "650px",
-            margin: "0 auto 50px",
-            color: "#bbb",
-            fontSize: "18px",
-            lineHeight: "1.6",
+            margin: "auto",
+            color: "#888",
+            lineHeight: 1.7,
+            fontSize: "17px",
           }}
         >
-          Discover phones, gaming gear and everyday technology chosen for
-          people who want great tech without the hassle.
+          GrabitUK focuses on the more interesting side of technology —
+          privacy-focused phones, customised gaming devices and tech
+          built around the way you actually want to use it.
         </p>
+      </section>
 
+      {/* CARDS */}
+
+      <section
+        style={{
+          padding: "20px 20px 100px",
+          background: "#080808",
+        }}
+      >
         <div
           style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
+            maxWidth: "1100px",
+            margin: "auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
             gap: "20px",
           }}
         >
-          {/* PHONES */}
-          <a
-            href="#phones"
+          {/* PHONE */}
+
+          <div
             style={{
-              width: "280px",
-              padding: "35px 20px",
-              background: "#111",
-              border: "1px solid #333",
-              borderRadius: "15px",
-              color: "#fff",
-              textDecoration: "none",
-              boxSizing: "border-box",
+              background: "#0d0d0d",
+              border: "1px solid #222",
+              padding: "35px 25px",
             }}
           >
-            <div style={{ fontSize: "55px" }}>📱</div>
-            <h3 style={{ fontSize: "26px" }}>Phones</h3>
-            <p style={{ color: "#aaa", lineHeight: "1.5" }}>
-              Discover new and refurbished phones ready for your next upgrade.
+            <div style={{ fontSize: "40px" }}>🔐</div>
+
+            <h3 style={{ fontSize: "24px" }}>
+              Privacy Phones
+            </h3>
+
+            <p
+              style={{
+                color: "#888",
+                lineHeight: 1.7,
+              }}
+            >
+              Privacy-focused Pixel devices and setup services
+              for people who want more control over their technology.
             </p>
-            <strong>View phones →</strong>
-          </a>
+          </div>
 
           {/* GAMING */}
-          <a
-            href="#gaming"
+
+          <div
             style={{
-              width: "280px",
-              padding: "35px 20px",
-              background: "#111",
-              border: "1px solid #333",
-              borderRadius: "15px",
-              color: "#fff",
-              textDecoration: "none",
-              boxSizing: "border-box",
+              background: "#0d0d0d",
+              border: "1px solid #222",
+              padding: "35px 25px",
             }}
           >
-            <div style={{ fontSize: "55px" }}>🎮</div>
-            <h3 style={{ fontSize: "26px" }}>Gaming</h3>
-            <p style={{ color: "#aaa", lineHeight: "1.5" }}>
-              Classic gaming, modern consoles and accessories for gamers.
+            <div style={{ fontSize: "40px" }}>🎮</div>
+
+            <h3 style={{ fontSize: "24px" }}>
+              Modded Devices
+            </h3>
+
+            <p
+              style={{
+                color: "#888",
+                lineHeight: 1.7,
+              }}
+            >
+              Customised Nintendo and handheld devices with
+              legitimate homebrew, themes and personalised setups.
             </p>
-            <strong>Explore gaming →</strong>
-          </a>
+          </div>
 
           {/* TECH */}
-          <a
-            href="#tech"
+
+          <div
             style={{
-              width: "280px",
-              padding: "35px 20px",
-              background: "#111",
-              border: "1px solid #333",
-              borderRadius: "15px",
-              color: "#fff",
-              textDecoration: "none",
-              boxSizing: "border-box",
+              background: "#0d0d0d",
+              border: "1px solid #222",
+              padding: "35px 25px",
             }}
           >
-            <div style={{ fontSize: "55px" }}>💻</div>
-            <h3 style={{ fontSize: "26px" }}>Tech</h3>
-            <p style={{ color: "#aaa", lineHeight: "1.5" }}>
-              Useful technology and accessories for everyday life.
+            <div style={{ fontSize: "40px" }}>⚡</div>
+
+            <h3 style={{ fontSize: "24px" }}>
+              Custom Tech
+            </h3>
+
+            <p
+              style={{
+                color: "#888",
+                lineHeight: 1.7,
+              }}
+            >
+              Interesting technology, accessories and customised
+              setups for people who want something different.
             </p>
-            <strong>See technology →</strong>
-          </a>
+          </div>
         </div>
       </section>
 
-      {/* PHONES */}
-      <section
-        id="phones"
-        style={{
-          padding: "100px 20px",
-          textAlign: "center",
-          background: "#080808",
-        }}
-      >
-        <div style={{ fontSize: "60px" }}>📱</div>
-
-        <h2 style={{ fontSize: "clamp(36px, 7vw, 60px)" }}>
-          Upgrade your phone.
-        </h2>
-
-        <p
-          style={{
-            maxWidth: "650px",
-            margin: "0 auto",
-            color: "#bbb",
-            fontSize: "18px",
-            lineHeight: "1.7",
-          }}
-        >
-          Looking for your next phone? GrabitUK is built around making modern
-          technology easier to find, compare and grab.
-        </p>
-      </section>
-
-      {/* GAMING */}
-      <section
-        id="gaming"
-        style={{
-          padding: "100px 20px",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ fontSize: "60px" }}>🎮</div>
-
-        <h2 style={{ fontSize: "clamp(36px, 7vw, 60px)" }}>
-          Game on.
-        </h2>
-
-        <p
-          style={{
-            maxWidth: "650px",
-            margin: "0 auto",
-            color: "#bbb",
-            fontSize: "18px",
-            lineHeight: "1.7",
-          }}
-        >
-          From nostalgic handheld gaming to modern setups, discover tech made
-          for people who love to play.
-        </p>
-      </section>
-
-      {/* TECH */}
-      <section
-        id="tech"
-        style={{
-          padding: "100px 20px",
-          textAlign: "center",
-          background: "#080808",
-        }}
-      >
-        <div style={{ fontSize: "60px" }}>💻</div>
-
-        <h2 style={{ fontSize: "clamp(36px, 7vw, 60px)" }}>
-          More than just phones.
-        </h2>
-
-        <p
-          style={{
-            maxWidth: "650px",
-            margin: "0 auto",
-            color: "#bbb",
-            fontSize: "18px",
-            lineHeight: "1.7",
-          }}
-        >
-          Explore a growing range of technology, accessories and gadgets
-          designed to make everyday life a little smarter.
-        </p>
-      </section>
-
       {/* FOOTER */}
+
       <footer
         style={{
           padding: "50px 20px",
           textAlign: "center",
           borderTop: "1px solid #222",
+          background: "#050505",
         }}
       >
-        <h2 style={{ margin: 0 }}>GRABITUK</h2>
-        <p style={{ color: "#777" }}>
-          The latest tech, all in one place.
+        <h2
+          style={{
+            margin: 0,
+            letterSpacing: "4px",
+          }}
+        >
+          GRABITUK
+        </h2>
+
+        <p
+          style={{
+            color: "#555",
+            fontSize: "12px",
+            letterSpacing: "2px",
+          }}
+        >
+          TECH. PRIVACY. MODS.
         </p>
       </footer>
     </main>
