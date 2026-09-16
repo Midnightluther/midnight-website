@@ -23,8 +23,7 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          fontFamily:
-            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
+          fontFamily: "Arial, sans-serif",
           padding: "20px",
           boxSizing: "border-box",
         }}
@@ -33,11 +32,9 @@ export default function Home() {
           style={{
             width: "100%",
             maxWidth: "430px",
-            margin: "0 auto",
             padding: "42px 24px",
-            background: "rgba(5,10,8,0.96)",
+            background: "#050a08",
             border: "2px solid white",
-            boxShadow: "0 0 40px rgba(0,255,136,0.12)",
             boxSizing: "border-box",
           }}
         >
@@ -56,13 +53,8 @@ export default function Home() {
             style={{
               margin: "0 0 18px",
               fontSize: "clamp(34px, 9vw, 58px)",
-              fontWeight: 800,
-              letterSpacing: "1px",
-              lineHeight: 1,
+              fontWeight: 900,
               color: "white",
-              textAlign: "center",
-              textShadow:
-                "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000",
             }}
           >
             GRABITUK
@@ -73,7 +65,7 @@ export default function Home() {
               color: "#aaa",
               letterSpacing: "4px",
               fontSize: "13px",
-              margin: "0 0 12px",
+              marginBottom: "12px",
             }}
           >
             SECURE ACCESS
@@ -83,7 +75,7 @@ export default function Home() {
             style={{
               color: "#666",
               fontSize: "13px",
-              margin: "0 0 20px",
+              marginBottom: "20px",
             }}
           >
             Enter your access key to continue
@@ -106,8 +98,8 @@ export default function Home() {
               textAlign: "center",
               fontSize: "16px",
               letterSpacing: "4px",
-              outline: "none",
               boxSizing: "border-box",
+              outline: "none",
             }}
           />
 
@@ -133,7 +125,7 @@ export default function Home() {
               color: "#555",
               fontSize: "11px",
               letterSpacing: "2px",
-              margin: "18px 0 0",
+              marginTop: "18px",
             }}
           >
             GRABITUK ACCESS
@@ -149,22 +141,19 @@ export default function Home() {
         minHeight: "100vh",
         background: "#000",
         color: "white",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       {/* HERO */}
 
       <section
         style={{
-          minHeight: "65vh",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
           alignItems: "center",
+          justifyContent: "center",
           textAlign: "center",
-          padding: "60px 20px",
-          boxSizing: "border-box",
+          padding: "65px 20px 25px",
         }}
       >
         <p
@@ -172,7 +161,7 @@ export default function Home() {
             color: "#00ff88",
             letterSpacing: "4px",
             fontSize: "12px",
-            marginBottom: "18px",
+            margin: "0 0 18px",
           }}
         >
           WELCOME TO GRABITUK
@@ -180,8 +169,8 @@ export default function Home() {
 
         <h1
           style={{
-            fontSize: "clamp(42px, 9vw, 80px)",
-            margin: "0",
+            fontSize: "clamp(40px, 9vw, 80px)",
+            margin: 0,
             fontWeight: 900,
             letterSpacing: "3px",
           }}
@@ -193,7 +182,7 @@ export default function Home() {
           style={{
             fontSize: "clamp(20px, 4vw, 30px)",
             color: "#00ff88",
-            marginTop: "15px",
+            margin: "15px 0 5px",
             fontWeight: 700,
           }}
         >
@@ -202,55 +191,52 @@ export default function Home() {
 
         <p
           style={{
-            maxWidth: "550px",
             color: "#888",
-            lineHeight: 1.6,
-            marginTop: "20px",
             fontSize: "15px",
+            margin: "5px 0 0",
           }}
         >
           The fun side of tech.
         </p>
       </section>
 
-      {/* PRODUCTS */}
+      {/* EXPLORE */}
 
       <section
         style={{
           maxWidth: "1000px",
           margin: "0 auto",
-          padding: "30px 20px 80px",
+          padding: "15px 20px 70px",
         }}
       >
         <h2
           style={{
             textAlign: "center",
             fontSize: "32px",
-            marginBottom: "45px",
+            margin: "0 0 30px",
           }}
         >
           EXPLORE GRABITUK
         </h2>
 
-        {/* PHONE */}
+        {/* PRIVACY PHONES */}
 
         <div
           style={{
             background: "#080808",
             border: "1px solid #222",
-            marginBottom: "30px",
+            marginBottom: "25px",
             overflow: "hidden",
           }}
         >
           <div
             style={{
-              height: "350px",
-              background:
-                "linear-gradient(145deg, #111 0%, #050505 100%)",
+              height: "300px",
+              background: "linear-gradient(145deg, #111, #050505)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "100px",
+              fontSize: "90px",
             }}
           >
             📱
@@ -258,7 +244,7 @@ export default function Home() {
 
           <div
             style={{
-              padding: "25px",
+              padding: "22px",
               textAlign: "center",
             }}
           >
@@ -279,14 +265,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MODDED DEVICES */}
+        {/* TWO BOXES */}
 
         <div
           style={{
             display: "grid",
             gridTemplateColumns:
               "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "30px",
+            gap: "25px",
           }}
         >
           <div
@@ -298,13 +284,12 @@ export default function Home() {
           >
             <div
               style={{
-                height: "280px",
-                background:
-                  "linear-gradient(145deg, #111 0%, #050505 100%)",
+                height: "250px",
+                background: "linear-gradient(145deg, #111, #050505)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "85px",
+                fontSize: "80px",
               }}
             >
               🎮
@@ -323,16 +308,14 @@ export default function Home() {
               <p
                 style={{
                   color: "#888",
-                  lineHeight: 1.6,
                   margin: 0,
+                  lineHeight: 1.6,
                 }}
               >
                 Custom handhelds with unique software, themes and setups.
               </p>
             </div>
           </div>
-
-          {/* CUSTOM TECH */}
 
           <div
             style={{
@@ -343,13 +326,12 @@ export default function Home() {
           >
             <div
               style={{
-                height: "280px",
-                background:
-                  "linear-gradient(145deg, #111 0%, #050505 100%)",
+                height: "250px",
+                background: "linear-gradient(145deg, #111, #050505)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "85px",
+                fontSize: "80px",
               }}
             >
               ⚡
@@ -368,8 +350,8 @@ export default function Home() {
               <p
                 style={{
                   color: "#888",
-                  lineHeight: 1.6,
                   margin: 0,
+                  lineHeight: 1.6,
                 }}
               >
                 Accessories and personalised technology for people who want
@@ -380,23 +362,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* CONTACT */}
 
       <footer
         style={{
-          borderTop: "1px solid #151515",
-          padding: "30px 20px",
+          borderTop: "1px solid #222",
+          padding: "40px 20px",
           textAlign: "center",
-          color: "#555",
-          letterSpacing: "2px",
-          fontSize: "12px",
+          background: "#050505",
         }}
       >
-        GRABITUK
-        <br />
-        <span style={{ color: "#333" }}>
+        <h3
+          style={{
+            margin: "0 0 18px",
+            letterSpacing: "2px",
+          }}
+        >
+          CONTACT GRABITUK
+        </h3>
+
+        <a
+          href="mailto:Grabituk@proton.me"
+          aria-label="Email GrabitUK"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "55px",
+            height: "55px",
+            border: "1px solid #333",
+            borderRadius: "50%",
+            background: "#0b0b0b",
+            color: "#00ff88",
+            textDecoration: "none",
+            fontSize: "25px",
+            marginBottom: "15px",
+          }}
+        >
+          ✉
+        </a>
+
+        <div
+          style={{
+            color: "#aaa",
+            fontSize: "14px",
+            marginBottom: "20px",
+          }}
+        >
+          Email:{" "}
+          <a
+            href="mailto:Grabituk@proton.me"
+            style={{
+              color: "#00ff88",
+              textDecoration: "none",
+              fontWeight: 700,
+            }}
+          >
+            Grabituk@proton.me
+          </a>
+        </div>
+
+        <div
+          style={{
+            color: "#555",
+            fontSize: "12px",
+            letterSpacing: "2px",
+          }}
+        >
+          GRABITUK
+        </div>
+
+        <div
+          style={{
+            color: "#333",
+            fontSize: "11px",
+            letterSpacing: "2px",
+            marginTop: "6px",
+          }}
+        >
           TECH. PRIVACY. MODS.
-        </span>
+        </div>
       </footer>
     </main>
   );
