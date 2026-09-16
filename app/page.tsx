@@ -7,12 +7,20 @@ export default function Home() {
   const [key, setKey] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const font =
+    'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif';
+
+  /* ---------------- SECRET ACCESS ---------------- */
 
   const unlock = () => {
     setAccess(true);
   };
 
-  const joinDrop = (e: React.FormEvent<HTMLFormElement>) => {
+  /* ---------------- EMAIL SIGNUP ---------------- */
+
+  const joinDrop = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!email.trim()) {
@@ -20,13 +28,41 @@ export default function Home() {
       return;
     }
 
-    setMessage("Email signup will be available soon.");
+    setSubmitting(true);
+    setMessage("Joining...");
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/moevqvjq",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            message: "GrabitUK mailing list signup",
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setMessage("✓ YOU'RE ON THE LIST");
+        setEmail("");
+      } else {
+        setMessage("Something went wrong. Please try again.");
+      }
+    } catch {
+      setMessage("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  const font =
-    'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif';
-
-  /* ---------------- ACCESS SCREEN ---------------- */
+  /* =================================================
+     ACCESS SCREEN
+  ================================================= */
 
   if (!access) {
     return (
@@ -150,7 +186,9 @@ export default function Home() {
             value={key}
             onChange={(e) => setKey(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") unlock();
+              if (e.key === "Enter") {
+                unlock();
+              }
             }}
             placeholder="ACCESS KEY"
             style={{
@@ -204,7 +242,9 @@ export default function Home() {
     );
   }
 
-  /* ---------------- MAIN WEBSITE ---------------- */
+  /* =================================================
+     MAIN WEBSITE
+  ================================================= */
 
   return (
     <main
@@ -396,7 +436,8 @@ export default function Home() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "22px",
           }}
         >
@@ -458,8 +499,8 @@ export default function Home() {
                   fontSize: "14px",
                 }}
               >
-                Custom handhelds with unique software, themes and personalised
-                setups.
+                Custom handhelds with unique software, themes and
+                personalised setups.
               </p>
             </div>
           </div>
@@ -522,15 +563,17 @@ export default function Home() {
                   fontSize: "14px",
                 }}
               >
-                Accessories and personalised technology for people looking for
-                something different.
+                Accessories and personalised technology for people
+                looking for something different.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* EMAIL SIGNUP */}
+      {/* =================================================
+          MAILING LIST
+      ================================================= */}
 
       <section
         style={{
@@ -580,8 +623,8 @@ export default function Home() {
               fontSize: "14px",
             }}
           >
-            Sign up for exclusive GrabitUK product drops, subscriber discounts
-            and selected news.
+            Sign up for exclusive GrabitUK product drops,
+            subscriber discounts and selected news.
           </p>
 
           <form
@@ -596,6 +639,7 @@ export default function Home() {
           >
             <input
               type="email"
+              name="email"
               required
               value={email}
               onChange={(e) => {
@@ -620,20 +664,25 @@ export default function Home() {
 
             <button
               type="submit"
+              disabled={submitting}
               style={{
                 flex: "1 1 160px",
                 padding: "17px 24px",
                 border: "none",
-                background: "#00e67a",
+                background: submitting
+                  ? "#6b8275"
+                  : "#00e67a",
                 color: "#020302",
                 fontFamily: font,
                 fontSize: "11px",
                 fontWeight: 800,
                 letterSpacing: "1.5px",
-                cursor: "pointer",
+                cursor: submitting
+                  ? "not-allowed"
+                  : "pointer",
               }}
             >
-              JOIN THE LIST
+              {submitting ? "JOINING..." : "JOIN THE LIST"}
             </button>
           </form>
 
@@ -646,17 +695,23 @@ export default function Home() {
               lineHeight: 1.6,
             }}
           >
-            By joining the list, you agree to receive marketing emails from
-            GrabitUK, including product news and offers. You can unsubscribe at
-            any time.
+            By joining the list, you agree to receive marketing
+            emails from GrabitUK, including product news and
+            offers. You can unsubscribe at any time.
           </p>
 
           {message && (
             <p
               style={{
-                marginTop: "15px",
-                color: "#00e67a",
+                marginTop: "16px",
+                color:
+                  message.includes("wrong") ||
+                  message.includes("Please")
+                    ? "#d8d8d8"
+                    : "#00e67a",
                 fontSize: "12px",
+                fontWeight: 700,
+                letterSpacing: "1px",
               }}
             >
               {message}
